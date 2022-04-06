@@ -340,7 +340,7 @@
                       text-gray-400
                     "
                   >
-                    <Link :href=""> Purchases </Link>
+                   Purchases
                   </p>
                   <p
                     class="
@@ -376,7 +376,7 @@
                       text-gray-400
                     "
                   >
-                    <Link :href=""> Stocks </Link>
+                    Stocks 
                   </p>
                   <p
                     class="
@@ -388,7 +388,7 @@
                       text-gray-400
                     "
                   >
-                      <Link :href=""> Setup </Link>
+                      Setup
                   </p>
                 </div>
               </div>

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name',50);
             $table->text('description')->nullable();
-            $table->float('lat');
-            $table->float('long');
+            $table->string('lat',50);
+            $table->string('long',50);
             $table->enum('status',['active','inactive']);
             $table->timestamps();
         });
