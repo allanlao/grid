@@ -23133,7 +23133,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     errors: Object,
-    nodes: Array
+    nodes: Array,
+    paths: Array
   },
   setup: function setup(props) {
     var map;
@@ -23156,19 +23157,28 @@ __webpack_require__.r(__webpack_exports__);
     }); //build the markers
 
     var towers = new (leaflet__WEBPACK_IMPORTED_MODULE_1___default().layerGroup)();
+    var connections = new (leaflet__WEBPACK_IMPORTED_MODULE_1___default().layerGroup)();
     props.nodes.forEach(function (element) {
-      //  var element = props.nodes[1];
-      console.log(parseFloat(element.lat));
-      console.log(parseFloat(element["long"]));
       leaflet__WEBPACK_IMPORTED_MODULE_1___default().marker([parseFloat(element.lat), parseFloat(element["long"])], {
         icon: greenIcon
-      }).addTo(towers);
+      }).bindPopup(element.name).openPopup().addTo(towers);
+    });
+    var polyline;
+    props.paths.forEach(function (element) {
+      var lat = element.nodeA.lat;
+      console.log(element.nodeA.lat);
+      /*  L.polyline( [
+          [parseFloat(element.nodeA.lat), parseFloat(element.nodeA.long)],
+           [parseFloat(element.nodeB.lat), parseFloat(element.nodeB.long)],
+        ], { color: "red" }).addTo(connections);
+          */
     });
     var baseMaps = {
       Tile: tiles
     };
     var overlayMaps = {
-      Towers: towers
+      Towers: towers,
+      Lines: lines
     };
     (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
       map = leaflet__WEBPACK_IMPORTED_MODULE_1___default().map("map", {

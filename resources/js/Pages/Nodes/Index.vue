@@ -15,6 +15,7 @@ export default {
     props: {
     errors: Object,
     nodes: Array,
+    paths: Array,
   },
   setup(props) {
     let map;
@@ -44,17 +45,29 @@ export default {
 
  //build the markers
     var towers =new L.layerGroup();
+    var connections =new L.layerGroup();
 
    props.nodes.forEach(element => {
 
-  //  var element = props.nodes[1];
-    
+      L.marker([parseFloat(element.lat), parseFloat(element.long)], { icon: greenIcon }).bindPopup(element.name).openPopup().addTo(towers);
 
-      console.log(parseFloat(element.lat));
-      console.log(parseFloat(element.long));
+    });
 
-      L.marker([parseFloat(element.lat), parseFloat(element.long)], { icon: greenIcon }).addTo(towers);
 
+  var polyline; 
+       props.paths.forEach(element => {
+
+       var lat = element.nodeA.lat;
+
+       console.log((element.nodeA.lat));
+
+    /*  L.polyline( [
+        [parseFloat(element.nodeA.lat), parseFloat(element.nodeA.long)],
+         [parseFloat(element.nodeB.lat), parseFloat(element.nodeB.long)],
+      ], { color: "red" }).addTo(connections);
+
+      */
+  
     });
 
 
@@ -64,6 +77,7 @@ export default {
 
     var overlayMaps = {
       Towers: towers,
+      Lines: lines,
       
     };
 
