@@ -84,6 +84,14 @@ const submit = () => {
                     Log in
                 </JetButton>
             </div>
+
+            <div>
+                 <Link  :href="route('google')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                    Login with Google
+                </Link>
+            </div>
         </form>
     </JetAuthenticationCard>
+
+    
 </template>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,16 @@ Route::middleware([
 
 
     Route::resource('nodes', NodeController::class);
+});
+
+
+
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+})->name('google');
+ 
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('google')->user();
+ 
+    // $user->token
 });

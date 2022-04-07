@@ -15,13 +15,13 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie','auth'],
 
     'allowed_methods' => ['*'],
 
     'allowed_origins' => ['*'],
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => ['http://127.0.0.1:8000/auth/redirect'],
 
     'allowed_headers' => ['*'],
 
@@ -30,5 +30,7 @@ return [
     'max_age' => 0,
 
     'supports_credentials' => false,
+
+
 
 ];
