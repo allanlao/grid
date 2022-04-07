@@ -5,22 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Path extends Model
+class RadioLine extends Model
 {
     use HasFactory;
+
 
     protected $fillable = [
         'name',  
         'description',
         'latA',
-        'lngA',
         'latB',
+        'lngA',
         'lngB',
         'type',
 ];
-
-public function nodes(){
-    return $this->belongsTo(Node::class);
-}
 
 }

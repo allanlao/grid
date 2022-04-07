@@ -13,6 +13,7 @@ class Node extends Model
          'name',
          'type',
          'description',
+         'location',
          'lat',
          'long',
          'status',

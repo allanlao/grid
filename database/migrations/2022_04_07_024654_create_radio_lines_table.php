@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nodes', function (Blueprint $table) {
+        Schema::create('radio_lines', function (Blueprint $table) {
             $table->id();
             $table->string('name',50);
-            $table->text('location')->nullable();
             $table->text('description')->nullable();
-            $table->string('lat',50);
-            $table->string('long',50);
+            $table->string('latA',50);
+            $table->string('lngA',50);
+            $table->string('latB',50);
+            $table->string('lngB',50);
             $table->enum('status',['active','inactive']);
+         
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nodes');
+        Schema::dropIfExists('radio_lines');
     }
 };
